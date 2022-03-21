@@ -1446,6 +1446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93878bf21b7240143959c52b99df6153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 00a783c0fabdce341acc72d8ed72ac1b, type: 2}
   playerSpeed: 3
   sprintMultiplier: 1
   jumpHeight: 0.5
@@ -1513,7 +1514,6 @@ MonoBehaviour:
   attackPrefab: {fileID: 6993223757688981509, guid: 3141cc45d49c23f44be2344782fcdcd1, type: 3}
   wandTipTransform: {fileID: 788204527}
   attackParent: {fileID: 1137668156}
-  attackRange: 100
   cameraYRot: {fileID: 2009787370}
   cameraTransform: {fileID: 904520005}
 --- !u!114 &1909292790
