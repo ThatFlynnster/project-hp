@@ -74,12 +74,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         attackDuration = stats.atkDuration;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 
     void Update()
     {
         isGrounded = controller.isGrounded;
-        if (isGrounded) playerVelocity.y = 0f;
+        if (isGrounded) playerVelocity.y = -1f;
 
         InputCheck();
         Move();
