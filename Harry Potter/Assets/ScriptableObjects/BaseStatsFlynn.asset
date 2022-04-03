@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72511ecd7cfd504c9007b9b8fb303fb, type: 3}
+  m_Name: BaseStatsFlynn
+  m_EditorClassIdentifier: 
+  chrName: Flynn
+  hp: 275
+  atkDamage: 56
+  atkSpeed: 0.5
+  atkDuration: 80
+  atkVelocity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 100
+      inSlope: -8.233287
+      outSlope: -8.233287
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.22916667
+    - serializedVersion: 3
+      time: 1
+      value: 70
+      inSlope: -34.198067
+      outSlope: -34.198067
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.100000024
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  atkStamina: 8
+  defStamina: 10
+  dashCount: 3

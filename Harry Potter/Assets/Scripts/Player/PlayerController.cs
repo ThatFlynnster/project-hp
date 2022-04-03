@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public BaseStats stats;
+
     [SerializeField]
     private float playerSpeed = 3.0f;
     [SerializeField]
@@ -34,8 +36,7 @@ public class PlayerController : MonoBehaviour
     private Transform wandTipTransform;
     [SerializeField]
     private Transform attackParent;
-    [SerializeField]
-    private float attackRange = 100f;
+    private float attackDuration;
 
 
     private CharacterController controller;
@@ -70,10 +71,17 @@ public class PlayerController : MonoBehaviour
         attackAction = playerInput.actions["Attack"];
     }
 
+    void Start()
+    {
+        attackDuration = stats.atkDuration;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
+    }
+
     void Update()
     {
         isGrounded = controller.isGrounded;
-        if (isGrounded) playerVelocity.y = 0f;
+        if (isGrounded) playerVelocity.y = -1f;
 
         InputCheck();
         Move();
@@ -116,8 +124,6 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-
-
         RaycastHit hit;
         GameObject attack = GameObject.Instantiate(attackPrefab, wandTipTransform.position, Quaternion.identity, attackParent);
         BulletController bulletController = attack.GetComponent<BulletController>();
@@ -128,7 +134,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            bulletController.target = cameraTransform.position + cameraTransform.forward * attackRange;
+            bulletController.target = cameraTransform.position + cameraTransform.forward * attackDuration;
             bulletController.hit = false;
         }
     }
