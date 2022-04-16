@@ -31,13 +31,10 @@ public class BulletController : MonoBehaviour
     {
         lifeTime += Time.deltaTime;
         speed = speedCurve.Evaluate(lifeTime);
-
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
         if (!hit && Vector3.Distance(transform.position, target) < 0.005f)
-        {
             Destroy(gameObject);
-            print("max range reached");
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,11 +42,6 @@ public class BulletController : MonoBehaviour
         //ContactPoint contact = other.GetContact(0);
         //GameObject.Instantiate(attackDecal, contact.point, Quaternion.LookRotation(contact.normal));
 
-        if (other.CompareTag("Environment"))
-        {
-            Destroy(gameObject);
-            print("collided with something");
-        }
-
+        Destroy(gameObject);
     }
 }
