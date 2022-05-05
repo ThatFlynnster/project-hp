@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public BaseStats stats;
+
     [SerializeField]
     private float playerSpeed = 3.0f;
     [SerializeField]
@@ -34,8 +36,7 @@ public class PlayerController : MonoBehaviour
     private Transform wandTipTransform;
     [SerializeField]
     private Transform attackParent;
-    [SerializeField]
-    private float attackRange = 100f;
+    private float attackDuration;
 
 
     private CharacterController controller;
@@ -57,6 +58,9 @@ public class PlayerController : MonoBehaviour
     private InputAction dodgeAction;
     private InputAction attackAction;
 
+
+    public float targetRotation = 0f;
+
     void Awake()
     {
         cameraTransform = Camera.main.transform;
@@ -70,10 +74,17 @@ public class PlayerController : MonoBehaviour
         attackAction = playerInput.actions["Attack"];
     }
 
+    void Start()
+    {
+        attackDuration = stats.atkDuration;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
+    }
+
     void Update()
     {
         isGrounded = controller.isGrounded;
-        if (isGrounded) playerVelocity.y = 0f;
+        if (isGrounded) playerVelocity.y = -1f;
 
         InputCheck();
         Move();
@@ -116,8 +127,6 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-
-
         RaycastHit hit;
         GameObject attack = GameObject.Instantiate(attackPrefab, wandTipTransform.position, Quaternion.identity, attackParent);
         BulletController bulletController = attack.GetComponent<BulletController>();
@@ -128,7 +137,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            bulletController.target = cameraTransform.position + cameraTransform.forward * attackRange;
+            bulletController.target = cameraTransform.position + cameraTransform.forward * attackDuration;
             bulletController.hit = false;
         }
     }
@@ -165,11 +174,10 @@ public class PlayerController : MonoBehaviour
         move.y = 0f;
         moveDir = move;
 
-        if(move.magnitude >= 0.1f)
-        {
-            float targetRotation = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
-            normalTargetRotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, rotationSpeed / 200f);
-        }
+        //Adventure Mode Rotation Values
+        if (isMoving) targetRotation = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
+        else targetRotation = transform.eulerAngles.y;
+        normalTargetRotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, rotationSpeed / 200f);
 
         Sprint();
 
@@ -211,6 +219,9 @@ public class PlayerController : MonoBehaviour
             Quaternion targetRotation = Quaternion.Euler(0, cameraYRot.eulerAngles.y, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
-        else transform.rotation = Quaternion.Euler(0f, normalTargetRotation, 0f);
+        else 
+        {
+            transform.rotation = Quaternion.Euler(0f, normalTargetRotation, 0f);
+        }
     }
 }
