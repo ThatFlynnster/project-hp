@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BaseStatsJune
   m_EditorClassIdentifier: 
   chrName: June
-  hp: 200
-  atkDamage: 51
+  hp: 250
+  atkDamage: 48
   atkSpeed: 0.4
   atkDuration: 150
   atkVelocity:
@@ -43,4 +43,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   atkStamina: 9
   defStamina: 12
-  dashCount: 2
+  dashCount: 3
