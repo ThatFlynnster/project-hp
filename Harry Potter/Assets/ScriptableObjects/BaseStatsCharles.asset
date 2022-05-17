@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chrName: Charles
   hp: 250
-  atkDamage: 57
+  atkDamage: 59
   atkSpeed: 0.5
   atkDuration: 120
   atkVelocity:
