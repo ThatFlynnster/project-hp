@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BaseStatsAntonio
   m_EditorClassIdentifier: 
   chrName: Antonio
-  hp: 250
-  atkDamage: 60
+  hp: 220
+  atkDamage: 71
   atkSpeed: 0.6
   atkDuration: 100
   atkVelocity:
@@ -23,6 +23,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  atkStamina: 12
+  atkStamina: 10
   defStamina: 12
   dashCount: 3
