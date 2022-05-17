@@ -17,4 +17,6 @@ public class BaseStats : ScriptableObject
     public int defStamina;
 
     public int dashCount = 3;
+    
+    public int meleeDmg = 40;
 }
