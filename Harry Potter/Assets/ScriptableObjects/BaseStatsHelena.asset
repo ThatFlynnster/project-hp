@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BaseStatsHelena
   m_EditorClassIdentifier: 
   chrName: Helena
-  hp: 225
-  atkDamage: 76
+  hp: 220
+  atkDamage: 82
   atkSpeed: 0.6
   atkDuration: 200
   atkVelocity:
@@ -41,6 +41,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  atkStamina: 13
+  atkStamina: 12
   defStamina: 10
   dashCount: 1
