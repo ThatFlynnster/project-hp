@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
     public float targetRotation = 0f;
 
+    #region Setup
     void Awake()
     {
         cameraTransform = Camera.main.transform;
@@ -80,6 +81,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
     }
+    #endregion
 
     void Update()
     {
@@ -95,7 +97,7 @@ public class PlayerController : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
-
+    #region Input Check
     private void InputCheck()
     {
         moveAction.performed += context => isMoving = true;
@@ -118,6 +120,7 @@ public class PlayerController : MonoBehaviour
         attackAction.performed -= _ => Attack();
         dodgeAction.performed -= _ => DodgeCheck();
     }
+    #endregion
 
     private void DuelToggle()
     {
