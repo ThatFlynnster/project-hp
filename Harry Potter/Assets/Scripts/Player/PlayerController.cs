@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 move = moveDir;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-            controller.Move(move * Time.deltaTime * playerSpeed * sprintMultiplier);
+            //controller.Move(move * Time.deltaTime * playerSpeed * sprintMultiplier);
         }
     }
 

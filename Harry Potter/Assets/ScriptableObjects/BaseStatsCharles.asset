@@ -44,3 +44,4 @@ MonoBehaviour:
   atkStamina: 9
   defStamina: 11
   dashCount: 3
+  meleeDmg: 40
