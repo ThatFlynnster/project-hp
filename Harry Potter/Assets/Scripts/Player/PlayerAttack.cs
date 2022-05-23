@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAttack : MonoBehaviour
+namespace HP
 {
-    public BaseStats stats;
+    public class PlayerAttack : MonoBehaviour
+    {
+        public BaseStats stats;
 
-    private InputAction attackAction;
+        private InputAction attackAction;
+    }
 }
